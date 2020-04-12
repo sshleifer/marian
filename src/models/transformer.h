@@ -644,7 +644,7 @@ public:
     auto decoderMask = state->getTargetMask();              // [max length, batch size, 1]  --this is a hypothesis
 
     //************************************************************************//
-
+    LOG(warn, "[warning] Output sampling and beam search (beam-size > 1) are contradictory methods and using them together is not recommended. Set beam-size to 1");
     int dimBeam = 1;
     if(embeddings->shape().size() > 3)
       dimBeam = embeddings->shape()[-4];
